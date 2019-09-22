@@ -1,0 +1,130 @@
+https://learn.freecodecamp.org/javascript-algorithms-and-data-structures/functional-programming/use-the-map-method-to-extract-data-from-an-array
+
+https://medium.com/better-programming/rewrite-your-own-array-methods-foreach-map-filter-find-reduce-1718e1138c3e
+
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype
+
+https://www.freecodecamp.org/forum/t/freecodecamp-refactor-global-variables-out-of-functions/156541/10
+
+
+
+implement-map-on-a-prototype
+	https://medium.com/better-programming/rewrite-your-own-array-methods-foreach-map-filter-find-reduce-1718e1138c3e
+	https://www.freecodecamp.org/forum/t/freecodecamp-functional-programming-implement-map-on-a-prototype-question/156632/9
+	for(let i=0; i<this.length; i++){
+    newArray.push(callback(this[i], i))
+  }
+
+use-the-filter-method-to-extract-data-from-an-array	
+	var filteredList = watchList
+	.filter((item)=>parseFloat(item.imdbRating) >= 8.0)
+	.map(({Title: title, imdbRating: rating})=>{
+	  return {title, rating} 
+	})
+	
+implement-the-filter-method-on-a-prototype
+  for(let i=0; i<this.length; i++){
+    if(callback(this[i], i, this) === true){
+      newArray.push(this[i])
+    }
+  }
+  
+return-part-of-an-array-using-the-slice-method
+  return anim.slice(beginSlice, endSlice)
+  var newArray = []
+  for(let i in anim){
+    if(i>=beginSlice && i<endSlice){
+      newArray.push(anim[i])
+    }  
+  }
+  return newArray
+  
+remove-elements-from-an-array-using-slice-instead-of-splice
+	return cities.slice(0,3)
+
+combine-two-arrays-using-the-concat-method
+	return original.concat(attach)
+	
+add-elements-to-the-end-of-an-array-using-concat-instead-of-push
+	return original.concat(newItem);
+
+use-the-reduce-method-to-analyze-data
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+	var reducerTotal = (accumulator, {imdbRating: value}) => {
+	  return accumulator + parseFloat(value)
+	}
+
+	var reducerNolan = (aux, movie) => {
+	  return movie.Director==='Christopher Nolan'
+		? aux.concat(movie)
+		: aux
+	}
+
+	var listNolan = watchList.reduce(reducerNolan, [])
+	var averageRating = listNolan
+	  .reduce(reducerTotal, 0) / listNolan.length
+
+sort-an-array-alphabetically-using-the-sort-method
+https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+	return arr.sort()
+
+return-a-sorted-array-without-changing-the-original-array
+	return [].concat(arr).sort()
+
+split-a-string-into-an-array-using-the-split-method
+https://stackoverflow.com/questions/6053541/regex-every-non-alphanumeric-character-except-white-space-or-colon
+http://regexrenamer.sourceforge.net/help/regex_quickref.html
+  return str.split(/[^a-zA-Z\d\s:]/).join(' ').split(' ')
+
+combine-an-array-into-a-string-using-the-join-method
+  return str.split(/[^a-zA-Z\d\s:]/).join(' ')//.split(' ')
+	
+apply-functional-programming-to-convert-strings-to-url-slugs
+{n,}	Match the previous element at least n times (as many as possible)
+  return title
+    .trim()
+    .toLowerCase()
+    .split(/\s{2,}/)
+    .join(' ')
+    .split(' ')
+    .join('-')
+
+use-the-every-method-to-check-that-every-element-in-an-array-meets-a-criteria
+  return arr.every(item=>item>0)
+
+use-the-some-method-to-check-that-any-elements-in-an-array-meet-a-criteria
+  return arr.some(item=>item>0)  
+  
+introduction-to-currying-and-partial-application
+https://medium.com/front-end-weekly/javascript-es6-curry-functions-with-practical-examples-6ba2ced003b1
+https://www.freecodecamp.org/forum/t/introduction-to-currying-and-partial-application-what-is-the-point/201743
+	function add(x) {
+	  // Add your code below this line
+	  
+	  return function(y) {
+		return function(z) {
+		  return x + y + z;
+		}
+	  }
+	  
+	  // Add your code above this line
+	}
+	add(10)(20)(30);
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
