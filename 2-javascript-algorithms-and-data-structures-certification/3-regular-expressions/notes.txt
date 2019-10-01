@@ -1,0 +1,169 @@
+Regular expressions are special strings that represent a search pattern. 
+Also known as "regex" or "regexp", they help programmers match, search, and replace text. 
+Regular expressions can appear cryptic because a few characters have special meaning. 
+The goal is to combine the symbols and text into a pattern that matches what you want, but only what you want.
+This section will cover the characters, a few shortcuts, and the common uses for writing regular expressions.
+
+1
+    JavaScript has multiple ways to use regexes. One way to test a regex is using the .test()method. 
+    The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), 
+    and returns trueor falseif your pattern finds something or not.
+    
+    let result = /Hello/.test("Hello, World!");
+
+3
+    You can search for multiple patterns using the alternation or OR operator: |.
+    This operator matches patterns either before or after it. For example, if you wanted to match "yes"or "no", the regex you want is /yes|no/.
+
+    let result = /dog|cat|bird|fish/.test(ames has a pet cat.);
+
+3
+    const has all the awesome features that let has. 
+    When variable is assigned with const, it cannot be reassigned.
+    A common practice when naming constants is to use all uppercase letters, with words separated by an underscore.
+
+4
+    There are other flags but here you'll focus on the flag that ignores case - the iflag. 
+    You can use it by appending it to the regex. 
+    An example of using this flag is /ignorecase/i. 
+    This regex can match the strings "ignorecase", "igNoreCase", and "IgnoreCase"
+
+5
+    You can also extract the actual matches you found with the .match()method.
+    To use the .match()method, apply the method on a string and pass in the regex inside the parentheses.
+
+    "Hello, World!".match(/Hello/);
+    // Returns ["Hello"]
+
+6
+    To search or extract a pattern more than once, you can use the g flag.
+
+    let result = "Twinkle, twinkle, little star".match(/twinkle/ig);
+
+7
+    The wildcard character . will match any one character. 
+    The wildcard is also called dot and period. 
+    For example, if you wanted to match "hug", "huh", "hut", and "hum", you can use the regex /hu./ to match all four words.
+
+8
+    You can search for a literal pattern with some flexibility with character classes. 
+    Character classes allow you to define a group of characters you wish to match by placing them inside square ([and]) brackets.
+
+    For example, you want to match "bag", "big", and "bug"but not "bog". 
+    You can create the regex /b[aiu]g/to do this. The [aiu] is the character class that will only match the characters "a", "i", or "u"
+
+9
+    Inside a character set, you can define a range of characters to match using a hyphencharacter: -.
+    For example, to match lowercase letters athrough eyou would use [a-e].
+
+10
+    Using the hyphen (-) to match a range of characters is not limited to letters. It also works to match a range of numbers.
+    For example, /[0-5]/ matches any number between 0and 5, including the 0 and 5.
+    Also, it is possible to combine a range of letters and numbers in a single character set.
+
+    let myRegex = /[a-z0-9]/ig;
+
+11
+    To create a negated character set, you place a caretcharacter (^) 
+    after the opening bracket and before the characters you do not want to match.
+
+    For example, /[^aeiou]/gimatches all characters that are not a vowel. 
+    Note that characters like ., !, [, @, /and white space are matched 
+    - the negated vowel character set only excludes the vowel characters.
+
+12
+    You can use the +character to check if that is the case. Remember, the character or pattern 
+    has to be present consecutively. That is, the character has to repeat one after the other.
+
+    For example, /a+/gwould find one match in "abc"and return ["a"]. 
+    Because of the +, it would also find a single match in "aabc"and return ["aa"].
+
+13
+    There's also an option that matches characters that occur zero or more times.
+    The character to do this is the asteriskor star: *
+
+-14
+    You can apply the regex /t[a-z]*i/to the string "titanic". 
+    This regex is basically a pattern that starts with t, ends with i, and has some letters in between.
+
+    Regular expressions are by default greedy, so the match would return ["titani"]. 
+    It finds the largest sub-string possible to fit the pattern.
+
+    However, you can use the ?character to change it to lazymatching. 
+    "titanic"matched against the adjusted regex of /t[a-z]*?i/returns ["ti"].
+
+16
+    Outside of a character set, the caretis used to search for patterns at the beginning of strings.
+
+    /^Ricky/.test("Ricky is first and can be found.")
+
+17
+    You can search the end of strings using the dollar signcharacter $at the end of the regex.
+
+18
+    The closest character class in JavaScript to match the alphabet is \w. 
+    This shortcut is equal to [A-Za-z0-9_]. 
+    This character class matches upper and lowercase letters plus numbers. 
+    Note, this character class also includes the underscore character (_).
+
+19
+    You can search for the opposite of the \w with \W. 
+    Note, the opposite pattern uses a capital letter. This shortcut is the same as [^A-Za-z0-9_].
+
+20
+    The shortcut to look for digit characters is \d, with a lowercase d. 
+    This is equal to the character class [0-9], which looks for a single character of any number between zero and nine.
+
+21
+    The shortcut to look for non-digit characters is \D. This is equal to the character class [^0-9]
+
+23
+    You can search for whitespace using \s
+
+24
+    Search for non-whitespace using \S
+
+25
+    You can specify the lower and upper number of patterns with quantity specifiers. 
+    Quantity specifiers are used with curly brackets ({and }). 
+    You put two numbers between the curly brackets - for the lower and upper number of patterns.
+
+    let multipleA = /a{3,5}h/;
+
+26
+    You can specify the lower and upper number of patterns with quantity specifiersusing curly brackets.
+
+27
+    To specify a certain number of patterns, just have that one number between the curly brackets.
+
+28
+    You can specify the possible existence of an element with a question mark, ?. 
+    This checks for zero or one of the preceding element. 
+    You can think of this symbol as saying the previous element is optional.
+
+    let rainbowRegex= /colou?r/;
+
+29
+    A positive lookaheadwill look to make sure the element in the search pattern is there, but won't actually match it. 
+    A positive lookahead is used as (?=...)where the ...is the required part that is not matched.
+
+    On the other hand, a negative lookaheadwill look to make sure the element in the search pattern is not there. 
+
+    Use lookaheadsin the pwRegexto match passwords that are greater than 5 characters long and have two consecutive digits.
+    let pwRegex = /(?=[a-zA-Z]{3,})(?=\D*\d{2,})/;
+
+-30
+    https://guide.freecodecamp.org/certifications/javascript-algorithms-and-data-structures/regular-expressions/reuse-patterns-using-capture-groups/
+    You can search for repeat substrings using capture groups. 
+    Parentheses, (and ), are used to find repeat substrings. 
+    You put the regex of the pattern that will repeat in between the parentheses.
+
+    To specify where that repeat string will appear, you use a backslash (\) and then a number. 
+
+31
+    You can search and replace text in a string using .replace()on a string. 
+    The inputs for .replace()is first the regex pattern you want to search for. 
+    The second parameter is the string to replace the match or a function to do something.
+
+    "The sky is silver.".replace(/silver/, "blue");
+

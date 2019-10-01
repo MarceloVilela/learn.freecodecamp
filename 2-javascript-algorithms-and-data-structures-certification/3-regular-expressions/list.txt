@@ -1,0 +1,34 @@
+[...document.querySelectorAll('.list-group>a')].map((el, key)=>console.log(`> ${++key}-${el.getAttribute('href').split('/').pop()}.js`))
+
+> 1-using-the-test-method.js
+> 2-match-literal-strings.js
+> 3-match-a-literal-string-with-different-possibilities.js
+> 4-ignore-case-while-matching.js
+> 5-extract-matches.js
+> 6-find-more-than-the-first-match.js
+> 7-match-anything-with-wildcard-period.js
+> 8-match-single-character-with-multiple-possibilities.js
+> 9-match-letters-of-the-alphabet.js
+> 10-match-numbers-and-letters-of-the-alphabet.js
+> 11-match-single-characters-not-specified.js
+> 12-match-characters-that-occur-one-or-more-times.js
+> 13-match-characters-that-occur-zero-or-more-times.js
+> 14-find-characters-with-lazy-matching.js
+> 15-find-one-or-more-criminals-in-a-hunt.js
+> 16-match-beginning-string-patterns.js
+> 17-match-ending-string-patterns.js
+> 18-match-all-letters-and-numbers.js
+> 19-match-everything-but-letters-and-numbers.js
+> 20-match-all-numbers.js
+> 21-match-all-non-numbers.js
+> 22-restrict-possible-usernames.js
+> 23-match-whitespace.js
+> 24-match-non-whitespace-characters.js
+> 25-specify-upper-and-lower-number-of-matches.js
+> 26-specify-only-the-lower-number-of-matches.js
+> 27-specify-exact-number-of-matches.js
+> 28-check-for-all-or-none.js
+> 29-positive-and-negative-lookahead.js
+> 30-reuse-patterns-using-capture-groups.js
+> 31-use-capture-groups-to-search-and-replace.js
+> 32-remove-whitespace-from-start-and-end.js
