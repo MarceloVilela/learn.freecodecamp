@@ -1,0 +1,130 @@
+1
+    One of the biggest problems with declaring variables with the varkeyword is that you can overwrite variable declarations without an error.
+
+    Note the "use strict". This enables Strict Mode, which catches common coding mistakes and "unsafe" actions. For instance:
+    "use strict";
+    x = 3.14; // throws an error because x is not declared
+
+2
+    When you declare a variable with the varkeyword, it is declared globally, or locally if declared inside a function.
+
+    The letkeyword behaves similarly, but with some extra features. 
+    When you declare a variable with the letkeyword inside a block, statement, or expression, its scope is limited to that block, statement, or expression.
+
+3
+    const has all the awesome features that let has. 
+    When variable is assigned with const, it cannot be reassigned.
+    A common practice when naming constants is to use all uppercase letters, with words separated by an underscore.
+
+4
+    However, it is important to understand that objects (including arrays and functions) assigned to a variable using constare still mutable. 
+    Using the constdeclaration only prevents reassignment of the variable identifier.
+
+6
+    JavaScript provides a function Object.freezeto prevent data mutation.
+    Any attempt at changing the object will be rejected without an error.
+
+12
+    We had to use Math.max.apply(null, arr)because Math.max(arr)returns NaN. Math.max()expects comma-separated arguments, but not an array.
+
+    The spread operator makes this syntax much better to read and maintain.
+    const maximus = Math.max(...arr); // returns 89
+
+    However, the spread operator only works in-place, like in an argument to a function or in an array literal.
+
+13
+    Here's the same assignment statement with ES6 destructuring syntax:
+    var voxel = {x: 3.6, y: 7.4, z: 6.54 };
+    const { x, y, z } = voxel; // x = 3.6, y = 7.4, z = 6.54
+
+    If instead you want to store the values of voxel.xinto a, voxel.yinto b, and voxel.zinto c, you have that freedom as well.
+    const { x : a, y : b, z : c } = voxel // a = 3.6, b = 7.4, c = 6.54
+
+14
+    We can similarly destructure nested objects into variables.
+
+    const a = {
+    start: { x: 5, y: 6},
+    end: { x: 6, y: -9 }
+    };
+    const { start : { x: startX, y: startY }} = a;
+    console.log(startX, startY); // 5, 6
+
+15
+    ES6 makes destructuring arrays as easy as destructuring objects.
+
+    One key difference between the spread operator and array destructuring 
+    is that the spread operator unpacks all contents of an array into a comma-separated list. 
+    
+    Consequently, you cannot pick or choose which elements you want to assign to variables.
+
+18
+    Basically, you won't have to use concatenation with the +operator anymore. 
+    To add variables to strings, you just drop the variable in a template string and wrap it with ${and }.
+
+19
+    Here is the same function from above rewritten to use this new syntax:
+    const getMousePosition = (x, y) => ({ x, y });
+
+21
+    This is to be noted, that the classsyntax is just a syntax, and not a full-fledged class based implementation of object oriented paradigm, unlike in languages like Java, or Python, or Ruby etc.
+
+    In ES5, we usually define a constructor function, and use the newkeyword to instantiate an object.
+
+    var SpaceShuttle = function(targetPlanet){
+    this.targetPlanet = targetPlanet;
+    }
+    var zeus = new SpaceShuttle('Jupiter');
+    The class syntax simply replaces the constructor function creation:
+
+    class SpaceShuttle {
+    constructor(targetPlanet){
+        this.targetPlanet = targetPlanet;
+    }
+    }
+    const zeus = new SpaceShuttle('Jupiter');
+
+22
+    Getter functions are meant to simply return (get) the value of an object's private variable 
+    to the user without the user directly accessing the private variable.
+
+    Setter functions are meant to modify (set) the value of an object's private variable based on the value passed into the setter function. 
+    This change could involve calculations, or even overwriting the previous value completely.
+
+    class Book {
+    constructor(author) {
+        this._author = author;
+    }
+    // getter
+    get writer(){
+        return this._author;
+    }
+    // setter
+    set writer(updatedAuthor){
+        this._author = updatedAuthor;
+    }
+    }
+
+23
+    In the past, the function require()would be used to import the functions and code in external files and modules. 
+    While handy, this presents a problem: some files and modules are rather large, and you may only need certain code from those external resources.
+
+    ES6 gives us a very handy tool known as import. 
+    With it, we can choose which parts of a module or file to load into a given file, saving time and memory.
+
+24
+    When we want some code - a function, or a variable - to be usable in another file, 
+    we must export it in order to import it into another file. Like import, exportis a non-browser feature.
+
+25
+    Suppose you have a file that you wish to import all of its contents into the current file. This can be done with the import * syntax.
+    import * as myMathModule from "math_functions";
+
+26
+    export defaultis used to declare a fallback value for a module or file, you can only have one value 
+    be a default export in each module or file. Additionally, you cannot use export defaultwith var, let, or const
+
+    export default function add(x,y) {
+    return x + y;
+    }
+
