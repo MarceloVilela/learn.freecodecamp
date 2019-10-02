@@ -1,0 +1,14 @@
+[...document.querySelectorAll('.list-group a')].map((el, key)=>console.log(`> ${++key}-${el.getAttribute('href').split('/').pop()}.js`))
+
+> 1-use-the-javascript-console-to-check-the-value-of-a-variable.js
+> 2-understanding-the-differences-between-the-freecodecamp-and-browser-console.js
+> 3-use-typeof-to-check-the-type-of-a-variable.js
+> 4-catch-misspelled-variable-and-function-names.js
+> 5-catch-unclosed-parentheses-brackets-braces-and-quotes.js
+> 6-catch-mixed-usage-of-single-and-double-quotes.js
+> 7-catch-use-of-assignment-operator-instead-of-equality-operator.js
+> 8-catch-missing-open-and-closing-parenthesis-after-a-function-call.js
+> 9-catch-arguments-passed-in-the-wrong-order-when-calling-a-function.js
+> 10-catch-off-by-one-errors-when-using-indexing.js
+> 11-use-caution-when-reinitializing-variables-inside-a-loop.js
+> 12-prevent-infinite-loops-with-a-valid-terminal-condition.js
