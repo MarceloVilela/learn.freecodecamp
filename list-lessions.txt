@@ -1,0 +1,54 @@
+getLevel1Title = (el, key) => key+1+'-'+el.textContent.replace(/\s/g, '-').split('(')[0].replace().toLowerCase();
+[...document.querySelectorAll('[data-test-label="learn-curriculum-map"] h4')].map((el, key) => getLevel1Title(el, key)).join("\n");
+
+mkdir 1-responsive-web-design-certification
+mkdir 2-javascript-algorithms-and-data-structures-certification
+mkdir 3-front-end-libraries-certification
+mkdir 4-data-visualization-certification
+mkdir 5-apis-and-microservices-certification
+mkdir 6-quality-assurance-certification
+mkdir 7-scientific-computing-with-python-certification
+mkdir 8-data-analysis-with-python-certification
+mkdir 9-information-security-certification
+mkdir 10-machine-learning-with-python-certification
+mkdir 11-coding-interview-prep
+
+//////////////////////////////////////////////////
+
+//open: Quality Assurance Certification (300 hours)
+//open: Advanced Node and Express
+
+getLevel2Title = (el, key) => `${key+1}-${el.textContent.replace(/\s/g, '-').split('(')[0].replace().toLowerCase()}`;
+level2 = [...document.querySelectorAll('[aria-expanded="true"] + ul [aria-expanded="true"] h4')].map((el, key) => getLevel2Title(el, key))[0];
+console.log(`mkdir ${level2}`);
+console.log(`cd ${level2}`);
+
+command = 'mkdir'
+getItemTitle = (el, key) => `${command} ${key+1}-${el.textContent.replace(/\s/g, '-').replace('', '').toLowerCase()}`;
+[...document.querySelectorAll('.map-title[aria-expanded="true"] + ul ul li')].map((el, key) => getItemTitle(el, key)).join("\n");
+
+mkdir 1-advanced-node-and-express
+cd 1-advanced-node-and-express
+mkdir 1-introduction-to-the-advanced-node-and-express-challenges
+mkdir 2-set-up-a-template-engine
+mkdir 3-use-a-template-engines-powers
+mkdir 4-set-up-passport
+mkdir 5-serialization-of-a-user-object
+mkdir 6-implement-the-serialization-of-a-passport-user
+mkdir 7-authentication-strategies
+mkdir 8-how-to-use-passport-strategies
+mkdir 9-create-new-middleware
+mkdir 10-how-to-put-a-profile-together
+mkdir 11-logging-a-user-out
+mkdir 12-registration-of-new-users
+mkdir 13-hashing-your-passwords
+mkdir 14-clean-up-your-project-with-modules
+mkdir 15-implementation-of-social-authentication
+mkdir 16-implementation-of-social-authentication-ii
+mkdir 17-implementation-of-social-authentication-iii
+mkdir 18-set-up-the-environment
+mkdir 19-communicate-by-emitting
+mkdir 20-handle-a-disconnect
+mkdir 21-authentication-with-socket.io
+mkdir 22-announce-new-users
+mkdir 23-send-and-display-chat-messages
