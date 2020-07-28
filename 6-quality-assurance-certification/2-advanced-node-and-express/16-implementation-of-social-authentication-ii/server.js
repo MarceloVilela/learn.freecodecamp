@@ -6,6 +6,9 @@ const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 const session     = require('express-session');
 const mongo       = require('mongodb').MongoClient;
 const passport    = require('passport');
+//
+const cookieParser   = require('cookie-parser');
+const GitHubStrategy = require('passport-github').Strategy;
 
 const app = express();
 
@@ -14,6 +17,9 @@ fccTesting(app); //For FCC testing purposes
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(session());
 
 app.set('view engine', 'pug')
 
@@ -32,10 +38,10 @@ mongo.connect(process.env.DATABASE, (err, db) => {
         app.use(passport.session());
       
         function ensureAuthenticated(req, res, next) {
-          if (req.isAuthenticated()) {
+          if (req.session.user || req.isAuthenticated()) {
               return next();
           }
-          res.redirect('/');
+          res.redirect('/login');
         };
 
         passport.serializeUser((user, done) => {
@@ -56,11 +62,31 @@ mongo.connect(process.env.DATABASE, (err, db) => {
         *  ADD YOUR CODE BELOW
         */
       
+        passport.use(new GitHubStrategy({
+            clientID: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET,
+            callbackURL: 'https://lfcc-social-authentication.glitch.me/auth/github/callback'
+          },
+          function(accessToken, refreshToken, profile, cb) {
+            console.log(profile.profileUrl)
+            return cb(null, profile);
+          }
+        ));
       
+        app.get('/auth/github', passport.authenticate('github'));
       
-      
-      
-      
+        app.get('/auth/github/callback', 
+          passport.authenticate(
+            'github', 
+            { 
+              failureRedirect: '/login', 
+            }
+          ),
+          function(req, res) {
+            req.session.user = req.user;
+            res.redirect('/profile');
+          }
+        );
       
         /*
         *  ADD YOUR CODE ABOVE
@@ -72,10 +98,14 @@ mongo.connect(process.env.DATABASE, (err, db) => {
             res.render(process.cwd() + '/views/pug/index');
           });
 
-        app.route('/profile')
-          .get(ensureAuthenticated, (req, res) => {
-               res.render(process.cwd() + '/views/pug/profile', {user: req.user});
-          });
+        app.get('/profile',
+          ensureAuthenticated,
+          (req, res) => {
+            req.user = req.session.user;
+            console.log('profile', req.user);
+            res.render(process.cwd() + '/views/pug/profile', {user: req.user});
+          }
+        );
 
         app.route('/logout')
           .get((req, res) => {
