@@ -3,17 +3,17 @@
 ## Implementation of Social Authentication
 
 >deprecated midllewares
-app.use(express.cookieParser(process.env.SESSION_SECRET));
-<https://github.com/senchalabs/connect#middleware/>
-<https://www.npmjs.com/package/cookie-parser/>
-var cookieParser = require('cookie-parser')
+app.use(express.cookieParser(process.env.SESSION_SECRET));__
+<https://github.com/senchalabs/connect#middleware/>__
+<https://www.npmjs.com/package/cookie-parser/>__
+var cookieParser = require('cookie-parser')__
 app.use(cookieParser())
 
 ---
 
 >social auth
-<https://www.npmjs.com/package/passport>
-<http://www.passportjs.org/packages/passport-github/>
+<https://www.npmjs.com/package/passport>__
+<http://www.passportjs.org/packages/passport-github/>__
 
 ---
 
