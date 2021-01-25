@@ -7,3 +7,7 @@
 ### Markdown Previewer
 [Instructions](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-markdown-previewer)
 [Solution](https://codepen.io/marcelovilela/full/KKgrQWm)
+
+### Drum Machine
+[Instructions](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine)
+[Solution](https://codepen.io/marcelovilela/full/RwGdPrJ)
