@@ -11,3 +11,7 @@
 ### Drum Machine
 [Instructions](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-drum-machine)
 [Solution](https://codepen.io/marcelovilela/full/RwGdPrJ)
+
+### Calculator
+[Instructions](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator)
+[Solution](https://codepen.io/marcelovilela/full/dypQbor)
