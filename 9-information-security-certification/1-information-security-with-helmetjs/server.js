@@ -7,6 +7,32 @@ var express = require('express');
 var app = express();
 var fs = require('fs');
 var path = require('path');
+const bcrypt = require('bcrypt');
+
+const saltRounds = 12;
+const myPlaintextPassword = 'sUperpassw0rd!';
+const someOtherPlaintextPassword = 'pass123';
+
+
+//START_ASYNC -do not remove notes, place code between correct pair of notes.
+
+bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+  console.log(hash); 
+  bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+      console.log(res); 
+  });
+});
+
+//END_ASYNC
+
+//START_SYNC
+var hash = bcrypt.hashSync(myPlaintextPassword, saltRounds);
+console.log(hash); 
+
+var result = bcrypt.compareSync(myPlaintextPassword, hash);
+console.log(result); 
+
+//END_SYNC
 
 app.use(function(req, res, next) {
   res.set({
@@ -52,6 +78,13 @@ app.get('/package.json', function(req, res, next) {
 	      res.type('txt').send(data.toString());
 	    });
 	  });
+
+app.get('/server.js', function(req, res, next) {
+  fs.readFile(__dirname + '/server.js', function(err, data) {
+    if(err) return next(err);
+    res.type('txt').send(data.toString());
+  });
+});
 
 app.use(function(req, res, next){
   res.status(404).type('txt').send('Not Found');
