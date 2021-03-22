@@ -15,3 +15,8 @@
 ### Calculator
 [Instructions](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-javascript-calculator)
 [Solution](https://codepen.io/marcelovilela/full/dypQbor)
+
+
+### Calculator
+[Instructions](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-25--5-clock)
+[Solution](https://codepen.io/marcelovilela/full/LYbOegw)
