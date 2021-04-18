@@ -1,2 +1,3 @@
-# Backend Challenges boilerplate - package.json
-[![Run on Repl.it](https://repl.it/badge/github/freeCodeCamp/boilerplate-npm)](https://repl.it/github/freeCodeCamp/boilerplate-npm)
+### Managing Packages with NPM
+[Instructions](https://www.freecodecamp.org/learn/apis-and-microservices/managing-packages-with-npm)
+[Solution](https://fcc-npm.marcelosilva11.repl.co)

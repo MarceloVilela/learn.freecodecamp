@@ -1,11 +1,22 @@
 {
 	"name": "fcc-learn-npm-package-json",
+	"author": "Marcelo Vilela",
+	"description": "freecodecamp - Managing Packages with NPM",
+	"keywords": [
+		"freecodecamp",
+		"node",
+		"microservices"
+	],
+	"license": "MIT",
+	"version": "0.1.0",
 	"dependencies": {
-		"express": "^4.14.0"
+		"express": "^4.14.0",
+		"nodemon": "^2.0.7"
 	},
 	"main": "server.js",
 	"scripts": {
-		"start": "node server.js"
+		"start": "nodemon server.js",
+		"dev": "nodemon server.js"
 	},
 	"repository": {
 		"type": "git",
