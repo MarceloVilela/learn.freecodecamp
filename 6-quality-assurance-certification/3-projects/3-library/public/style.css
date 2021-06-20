@@ -1,5 +1,5 @@
 .border {
-  border-style: solid;
+  border-style: inset;
   border-width: 1px;
   margin: 10px;
 }
@@ -22,13 +22,4 @@
 
 form {
   padding: 5px;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-}
-
-input {
-  margin-bottom: 5px;
 }
