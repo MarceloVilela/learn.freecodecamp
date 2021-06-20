@@ -1,11 +1,10 @@
-
 const translateHandler = async () => {
   const textArea = document.getElementById("text-input");
   const localeArea = document.getElementById("locale-select");
   const errorArea = document.getElementById("error-msg");
   const translatedArea = document.getElementById("translated-sentence");
-  
-  const stuff = {"text": textArea.value, "locale": localeArea.value};
+
+  const stuff = { "text": textArea.value, "locale": localeArea.value };
   errorArea.innerText = "";
   translatedArea.innerText = "";
 
